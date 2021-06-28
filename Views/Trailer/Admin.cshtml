@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TrailersWeb.Models.trailer>
+
+<link href="~/css/inde.css" rel="stylesheet" />
+<link href="~/Content/footerx.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Administrar";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/styles.css">
+<link rel="stylesheet" href="~/css/bootstrap-grid.css" />
+<link rel="stylesheet" href="~/css/bootstrap-grid.min.css" />
+<link rel="stylesheet" href="~/css/header-1.css" />
+<link rel="stylesheet" href="~/css/style.css" />
+<link rel="stylesheet" href="~/css/reset.min.css" />
+
+
+<body>
+    <main>
+        <a name="up"></a>
+        <section style="margin-left:5%" class="py-5 text-center container">
+
+            <img src="~/img/x.png" style="width:200px; height:200px" class="avatar" alt="Avatar Image">
+            <img src="~/img/cine.png" style="width:200px; height:200px" class="avatar" alt="Avatar Image">
+            <img src="~/img/boleto.png" style="width:200px; height:200px" class="avatar" alt="Avatar Image">
+
+        </section>
+
+        <div class="containerx">
+
+            @foreach (var itemx in Model.OrderByDescending(i => i.id))
+            {
+                <div class="itemx">
+                    <iframe width="360" height="215" src="https://www.youtube.com/embed/@itemx.link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="itemx-text">
+                        <h1 class="sizec">@itemx.nombre</h1>
+                        <p>@itemx.descripcion</p>
+                        <br />
+
+                        @Html.ActionLink("Modificar ", "Editar", new { id = itemx.id })
+                        @Html.ActionLink(" - Eliminar", "Borrar", new { id = itemx.id })
+                    </div>
+                </div>
+
+            }
+
+        </div>
+
+    </main>
+
+
+    <a name="end"></a>
+</body>
+
+
+
+

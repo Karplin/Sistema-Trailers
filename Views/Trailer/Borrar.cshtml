@@ -1,0 +1,54 @@
+﻿@model TrailersWeb.Models.trailer
+
+
+<link href="~/Content/crear.css" rel="stylesheet" />
+
+
+@{
+    ViewBag.Title = "Borrar";
+}
+
+
+<h3>¿Estás seguro que deseas eliminar este vídeo?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName(" Nombre")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayName(" Link")
+        </dt>
+
+        <dd>
+             @Html.DisplayFor(model => model.link)  
+
+        </dd>
+
+        <dt>
+            @Html.DisplayName(" Descripcion")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Admin")
+        </div>
+    }
+</div>
+
+
